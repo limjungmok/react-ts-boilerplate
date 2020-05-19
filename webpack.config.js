@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -14,13 +15,19 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx$/,
+        test: /\.(ts|tsx)$/,
         loader: 'awesome-typescript-loader'
       }
     ]
   },
   resolve: { // import 하는 파일의 확장자명을 나열
-    extensions: ['.js', '.jsx', '.ts', '.tsx']
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    alias: {
+      "@apis": path.resolve(__dirname, './src/apis'),
+      "@ui": path.resolve(__dirname, './src/components'),
+      "@store": path.resolve(__dirname, './src/store'),
+      "@constants": path.resolve(__dirname, './src/constants'),
+    }
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(), // HMR, hot 설정

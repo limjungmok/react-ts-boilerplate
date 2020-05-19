@@ -3,12 +3,10 @@ module.exports = {
 		browser: true,
 		es6: true
 	},
-	extends: ['plugin:react/recommended', 'airbnb', 'plugin:prettier/recommended'],
 	globals: {
 		Atomics: 'readonly',
 		SharedArrayBuffer: 'readonly'
 	},
-	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		ecmaFeatures: {
 			jsx: true
@@ -27,11 +25,6 @@ module.exports = {
 	plugins: ['react', '@typescript-eslint'],
 	rules: {
 		'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
-		'import/extensions': [
-			'error',
-			'ignorePackages',
-			{ js: 'never', jsx: 'never', ts: 'never', tsx: 'never', json: 'never' }
-		],
 		'react/jsx-indent': [2, 'tab'],
 		'react/jsx-indent-props': [2, 'tab']
 	}
